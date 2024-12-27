@@ -1,6 +1,13 @@
-import clsx from 'clsx';
 import { type Metadata } from 'next';
 import Link from 'next/link';
+
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 
 import { initialTickets } from '@/data';
 import { ticketPath } from '@/paths';
@@ -78,26 +85,27 @@ export default function TicketsPage() {
 
       <section className="animate-fade-in-from-top flex grow flex-col items-center gap-y-4">
         {initialTickets.map((ticket) => (
-          <div
-            key={ticket.id}
-            className="flex w-full max-w-105 flex-col rounded-sm border border-slate-100 p-4"
-          >
-            <h3 className="truncate text-lg font-semibold">{ticket.title}</h3>
-            <p
-              className={clsx('truncate text-sm text-slate-400', {
-                'line-through': ticket.status === 'DONE',
-              })}
-            >
-              {ticket.content}
-            </p>
-            <div className="order-first">
-              <span aria-hidden>{TICKET_ICONS[ticket.status]}</span>
-              <p className="sr-only">Ticket status is: ${ticket.status}</p>
-            </div>
-            <Link href={ticketPath(ticket.id)} className="text-sm underline">
-              View ticket
-            </Link>
-          </div>
+          <Card key={ticket.id} className="w-full max-w-105">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-x-2">
+                <span aria-hidden>{TICKET_ICONS[ticket.status]}</span>
+                <h3 className="truncate">{ticket.title}</h3>
+                <p className="sr-only">{`Ticket status is: ${ticket.status}`}</p>
+              </CardTitle>
+            </CardHeader>
+
+            <CardContent>
+              <p className="line-clamp-3 text-pretty whitespace-break-spaces">
+                {ticket.content}
+              </p>
+            </CardContent>
+
+            <CardFooter>
+              <Link href={ticketPath(ticket.id)} className="text-sm underline">
+                View ticket
+              </Link>
+            </CardFooter>
+          </Card>
         ))}
       </section>
     </div>

@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
 
 import { initialTickets } from '@/data';
 import { ticketPath } from '@/paths';
@@ -82,6 +83,8 @@ export default function TicketsPage() {
           All your tickets in one place
         </h2>
       </header>
+
+      <Separator />
 
       <section className="animate-fade-in-from-top flex grow flex-col items-center gap-y-4">
         {initialTickets.map((ticket) => (

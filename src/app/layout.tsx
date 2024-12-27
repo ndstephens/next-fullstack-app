@@ -45,7 +45,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <nav>
             <Link
               href={ticketsPath()}
-              className={buttonVariants({ variant: 'outline' })}
+              className={buttonVariants({ variant: 'default' })}
             >
               Tickets
             </Link>

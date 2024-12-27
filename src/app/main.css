@@ -5,7 +5,7 @@
 
   --breakpoint-xs: 480px;
 
-  --color-gray-50: var(--color-slate-50);
+  /* --color-gray-50: var(--color-slate-50);
   --color-gray-100: var(--color-slate-100);
   --color-gray-200: var(--color-slate-200);
   --color-gray-300: var(--color-slate-300);
@@ -15,7 +15,7 @@
   --color-gray-700: var(--color-slate-700);
   --color-gray-800: var(--color-slate-800);
   --color-gray-900: var(--color-slate-900);
-  --color-gray-950: var(--color-slate-950);
+  --color-gray-950: var(--color-slate-950); */
 }
 
 * {

@@ -13,7 +13,7 @@
     "lint:fix": "next lint . --ext js,jsx,ts,tsx,md,mdx --fix",
     "format": "prettier -wu .",
     "prepare": "husky",
-    "tsc": "tsc"
+    "type": "tsc --noEmit"
   },
   "dependencies": {
     "next": "15.1.3",

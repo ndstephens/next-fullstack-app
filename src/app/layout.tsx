@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import { type PropsWithChildren } from 'react';
 
+import { buttonVariants } from '@/components/ui/button';
+
 import { homePath, ticketsPath } from '@/paths';
 
 import './main.css';
@@ -27,22 +29,26 @@ export const metadata: Metadata = {
   },
 };
 
-// TODO: do these "bg-*" classes need to be in the global stylesheet?
-
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className={`${sans.variable}`}>
-      <body className="flex min-h-dvh flex-col bg-gray-800 font-sans text-gray-200 antialiased selection:bg-gray-300 selection:text-gray-900">
+      <body className="bg-background text-foreground flex min-h-dvh flex-col font-sans antialiased">
         <header className="bg-background/60 sticky top-0 border-b px-5 py-2.5 backdrop-blur">
           <nav>
             <ul className="flex w-full justify-between">
               <li>
-                <Link href={homePath()} className="text-lg font-bold">
+                <Link
+                  href={homePath()}
+                  className={buttonVariants({ variant: 'outline' })}
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href={ticketsPath()} className="text-sm underline">
+                <Link
+                  href={ticketsPath()}
+                  className={buttonVariants({ variant: 'outline' })}
+                >
                   Tickets
                 </Link>
               </li>

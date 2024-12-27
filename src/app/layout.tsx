@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" className={`${sans.variable}`}>
+    <html lang="en" className={`${sans.variable} dark`}>
       <body className="bg-background text-foreground flex min-h-dvh flex-col font-sans antialiased">
         <header className="bg-background/60 sticky top-0 border-b px-5 py-2.5 backdrop-blur">
           <nav>
@@ -60,7 +60,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           {children}
         </main>
 
-        <footer>Footer</footer>
+        {/* <footer>Footer</footer> */}
       </body>
     </html>
   );

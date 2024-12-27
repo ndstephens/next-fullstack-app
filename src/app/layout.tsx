@@ -1,3 +1,4 @@
+import { LucideKanban } from 'lucide-react';
 import { type Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
@@ -33,34 +34,27 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className={`${sans.variable} dark`}>
       <body className="bg-background text-foreground flex min-h-dvh flex-col font-sans antialiased">
-        <header className="bg-background/60 sticky top-0 border-b px-5 py-2.5 backdrop-blur">
+        <header className="bg-background/60 sticky top-0 flex justify-between border-b px-5 py-2.5 backdrop-blur">
+          <Link
+            href={homePath()}
+            className={buttonVariants({ variant: 'ghost' })}
+          >
+            <LucideKanban />
+            <span className="text-lg font-semibold">TicketBounty</span>
+          </Link>
           <nav>
-            <ul className="flex w-full justify-between">
-              <li>
-                <Link
-                  href={homePath()}
-                  className={buttonVariants({ variant: 'outline' })}
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={ticketsPath()}
-                  className={buttonVariants({ variant: 'outline' })}
-                >
-                  Tickets
-                </Link>
-              </li>
-            </ul>
+            <Link
+              href={ticketsPath()}
+              className={buttonVariants({ variant: 'outline' })}
+            >
+              Tickets
+            </Link>
           </nav>
         </header>
 
-        <main className="bg-secondary/20 flex grow flex-col overflow-x-hidden px-8 py-20">
+        <main className="bg-secondary/20 flex grow flex-col overflow-x-hidden px-8 py-10">
           {children}
         </main>
-
-        {/* <footer>Footer</footer> */}
       </body>
     </html>
   );

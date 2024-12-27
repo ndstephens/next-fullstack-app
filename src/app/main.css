@@ -16,6 +16,20 @@
   --color-gray-800: var(--color-slate-800);
   --color-gray-900: var(--color-slate-900);
   --color-gray-950: var(--color-slate-950); */
+
+  /** ANIMATIONS */
+  --animate-fade-in-from-top: fade-in-from-top 0.5s ease-out;
+
+  @keyframes fade-in-from-top {
+    from {
+      opacity: 0;
+      transform: translateY(-1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 * {

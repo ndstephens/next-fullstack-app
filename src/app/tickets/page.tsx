@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { type Metadata } from 'next';
 import Link from 'next/link';
 
@@ -24,14 +25,20 @@ export default function TicketsPage() {
         </h2>
       </header>
 
-      <section className="flex grow flex-col items-center gap-y-4">
+      <section className="animate-fade-in-from-top flex grow flex-col items-center gap-y-4">
         {initialTickets.map((ticket) => (
           <div
             key={ticket.id}
             className="flex w-full max-w-105 flex-col rounded-sm border border-slate-100 p-4"
           >
             <h3 className="truncate text-lg font-semibold">{ticket.title}</h3>
-            <p className="truncate text-sm text-slate-400">{ticket.content}</p>
+            <p
+              className={clsx('truncate text-sm text-slate-400', {
+                'line-through': ticket.status === 'DONE',
+              })}
+            >
+              {ticket.content}
+            </p>
             <div className="order-first">
               <span aria-hidden>{TICKET_ICONS[ticket.status]}</span>
               <p className="sr-only">Ticket status is: ${ticket.status}</p>

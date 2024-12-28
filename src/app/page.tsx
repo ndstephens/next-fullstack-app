@@ -1,6 +1,8 @@
 import { type Metadata } from 'next';
 import Link from 'next/link';
 
+import { Heading } from '@/components/heading';
+
 import { ticketsPath } from '@/paths';
 
 export const metadata: Metadata = {
@@ -10,12 +12,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="flex grow flex-col gap-y-8">
-      <header>
-        <h1 className="text-3xl font-bold tracking-tight">HomePage</h1>
-        <h2 className="text-muted-foreground text-sm">
-          Your home place to start
-        </h2>
-      </header>
+      <Heading title="Home" subtitle="Your home place to start" />
 
       <section className="flex grow flex-col items-center">
         <Link href={ticketsPath()} className="underline">

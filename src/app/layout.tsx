@@ -1,12 +1,8 @@
-import { LucideKanban } from 'lucide-react';
 import { type Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Link from 'next/link';
 import { type PropsWithChildren } from 'react';
 
-import { buttonVariants } from '@/components/ui/button';
-
-import { homePath, ticketsPath } from '@/paths';
+import { Header } from '@/components/header';
 
 import './main.css';
 
@@ -34,24 +30,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className={`${sans.variable} dark`}>
       <body className="bg-background text-foreground flex min-h-dvh flex-col font-sans antialiased">
-        <header className="bg-background/60 sticky top-0 flex justify-between border-b px-5 py-2.5 backdrop-blur">
-          <Link
-            href={homePath()}
-            className={buttonVariants({ variant: 'ghost' })}
-          >
-            <LucideKanban />
-            <span className="text-lg font-semibold">TicketBounty</span>
-          </Link>
-          <nav>
-            <Link
-              href={ticketsPath()}
-              className={buttonVariants({ variant: 'default' })}
-            >
-              Tickets
-            </Link>
-          </nav>
-        </header>
-
+        <Header />
         <main className="bg-secondary/20 flex grow flex-col overflow-x-hidden px-8 py-10">
           {children}
         </main>

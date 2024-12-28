@@ -126,8 +126,3 @@
 :where(button, button *) {
   @apply leading-none;
 }
-
-svg {
-  width: initial;
-  height: initial;
-}

@@ -5,6 +5,7 @@ import { Placeholder } from '@/components/placeholder';
 import { buttonVariants } from '@/components/ui/button';
 
 import { initialTickets } from '@/data';
+import { TicketItem } from '@/features/ticket/components/ticket-item';
 import { ticketsPath } from '@/paths';
 
 export const metadata: Metadata = {
@@ -39,10 +40,8 @@ export default async function TicketPage({ params }: TicketPageProps) {
   }
 
   return (
-    <section>
-      <h1 className="text-2xl">TicketPage: {ticket.id}</h1>
-      <h2 className="text-lg">{ticket.title}</h2>
-      <p className="text-sm">{ticket.content}</p>
+    <section className="animate-fade-in-from-top flex justify-center">
+      <TicketItem ticket={ticket} isDetail />
     </section>
   );
 }

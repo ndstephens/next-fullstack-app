@@ -1,12 +1,8 @@
+import { LucideSquareArrowOutUpRight } from 'lucide-react';
 import Link from 'next/link';
 
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 import { TICKET_ICONS } from '@/features/ticket/constants';
 import { Ticket } from '@/features/ticket/types';
@@ -17,27 +13,32 @@ type TicketItemProps = {
 };
 
 export function TicketItem({ ticket }: TicketItemProps) {
+  const detailButton = (
+    <Button variant="outline" size="icon" asChild>
+      <Link href={ticketPath(ticket.id)}>
+        <LucideSquareArrowOutUpRight className="h-4 w-4" />
+      </Link>
+    </Button>
+  );
+
   return (
-    <Card className="w-full max-w-105">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-x-2">
-          <span aria-hidden>{TICKET_ICONS[ticket.status]}</span>
-          <h3 className="truncate">{ticket.title}</h3>
-          <p className="sr-only">{`Ticket status is: ${ticket.status}`}</p>
-        </CardTitle>
-      </CardHeader>
+    <div className="flex w-full max-w-105 gap-x-1">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-x-2">
+            <span aria-hidden>{TICKET_ICONS[ticket.status]}</span>
+            <h3 className="truncate">{ticket.title}</h3>
+            <p className="sr-only">{`Ticket status is: ${ticket.status}`}</p>
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="line-clamp-3 text-pretty whitespace-break-spaces">
+            {ticket.content}
+          </p>
+        </CardContent>
+      </Card>
 
-      <CardContent>
-        <p className="line-clamp-3 text-pretty whitespace-break-spaces">
-          {ticket.content}
-        </p>
-      </CardContent>
-
-      <CardFooter>
-        <Link href={ticketPath(ticket.id)} className="text-sm underline">
-          View ticket
-        </Link>
-      </CardFooter>
-    </Card>
+      <div className="flex flex-col gap-y-1">{detailButton}</div>
+    </div>
   );
 }

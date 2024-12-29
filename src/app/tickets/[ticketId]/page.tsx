@@ -25,7 +25,7 @@ export default async function TicketPage({ params }: TicketPageProps) {
     return (
       <div className="flex grow items-center justify-center">
         <Placeholder
-          label="Ticket not found"
+          message="Ticket not found"
           link={
             <Link
               href={ticketsPath()}

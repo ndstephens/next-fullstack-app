@@ -4,22 +4,23 @@ import { cloneElement } from 'react';
 import { cn } from '@/lib/utils';
 
 type PlaceholderProps = {
-  label: string;
-  icon?: React.ReactElement<{ className: string }>;
-  link?: React.ReactElement<{ className: string }>;
+  message: string;
+  icon?: React.ReactElement<React.SVGAttributes<SVGSVGElement>>;
+  link?: React.ReactElement<React.AnchorHTMLAttributes<HTMLAnchorElement>>;
 };
 
 export function Placeholder({
-  label,
-  icon = <LucideMessageSquareWarning />,
+  message,
+  icon = <LucideMessageSquareWarning aria-hidden />,
   link,
 }: PlaceholderProps) {
   return (
     <div className="flex flex-col items-center justify-center gap-y-2">
       {cloneElement(icon, {
         className: cn('w-10 h-10', icon.props.className),
+        'aria-hidden': true,
       })}
-      <h1 className="text-center text-2xl font-semibold">{label}</h1>
+      <p className="text-center text-2xl font-semibold">{message}</p>
       {!!link &&
         cloneElement(link, {
           className: cn('mt-2', link.props.className),

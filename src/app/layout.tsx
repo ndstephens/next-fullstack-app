@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import { type PropsWithChildren } from 'react';
 
 import { Header } from '@/components/header';
+import { ThemeProvider } from '@/components/theme/theme-provider';
 
 import './main.css';
 
@@ -28,12 +29,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" className={`${sans.variable} dark`}>
+    <html lang="en" className={`${sans.variable}`} suppressHydrationWarning>
       <body className="bg-background text-foreground flex min-h-dvh flex-col font-sans antialiased">
-        <Header />
-        <main className="bg-secondary/20 flex grow flex-col overflow-x-hidden px-8 py-10">
-          {children}
-        </main>
+        <ThemeProvider>
+          <Header />
+          <main className="bg-secondary/20 flex grow flex-col overflow-x-hidden px-8 py-10">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

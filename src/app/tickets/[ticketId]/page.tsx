@@ -4,8 +4,9 @@ import Link from 'next/link';
 import { Placeholder } from '@/components/placeholder';
 import { buttonVariants } from '@/components/ui/button';
 
-import { initialTickets } from '@/data';
 import { TicketItem } from '@/features/ticket/components/ticket-item';
+
+import { initialTickets } from '@/data';
 import { ticketsPath } from '@/paths';
 
 export const metadata: Metadata = {

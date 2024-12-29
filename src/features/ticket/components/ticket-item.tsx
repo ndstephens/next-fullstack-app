@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 import { TICKET_ICONS } from '@/features/ticket/constants';
 import { Ticket } from '@/features/ticket/types';
+
 import { ticketPath } from '@/paths';
 
 type TicketItemProps = {

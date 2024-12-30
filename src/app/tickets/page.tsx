@@ -2,6 +2,7 @@ import { type Metadata } from 'next';
 import { Suspense } from 'react';
 
 import { Heading } from '@/components/heading';
+import { Spinner } from '@/components/spinner';
 
 import { TicketList } from '@/features/ticket/components/ticket-list';
 
@@ -14,7 +15,7 @@ export default function TicketsPage() {
     <div className="flex grow flex-col gap-y-8">
       <Heading title="Tickets" subtitle="All your tickets in one place" />
 
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Spinner />}>
         <TicketList />
       </Suspense>
     </div>

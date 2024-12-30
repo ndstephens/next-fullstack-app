@@ -33,7 +33,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body className="bg-background text-foreground flex min-h-dvh flex-col font-sans antialiased">
         <ThemeProvider>
           <Header />
-          <main className="bg-secondary/20 flex grow flex-col overflow-x-hidden px-8 py-10">
+          <main className="bg-secondary/20 flex grow flex-col overflow-x-hidden px-8 pt-8 pb-24">
             {children}
           </main>
         </ThemeProvider>

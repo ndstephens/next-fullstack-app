@@ -14,7 +14,8 @@
     "format": "prettier -wu .",
     "prepare": "husky",
     "type": "tsc --noEmit",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "prisma-seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "6.1.0",
@@ -46,6 +47,7 @@
     "prettier-plugin-tailwindcss": "^0.6.9",
     "prisma": "^6.1.0",
     "tailwindcss": "4.0.0-beta.6",
+    "tsx": "^4.19.2",
     "typescript": "^5.7.2"
   }
 }

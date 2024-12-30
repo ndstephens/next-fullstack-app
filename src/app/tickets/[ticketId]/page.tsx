@@ -5,8 +5,7 @@ import { Placeholder } from '@/components/placeholder';
 import { buttonVariants } from '@/components/ui/button';
 
 import { TicketItem } from '@/features/ticket/components/ticket-item';
-
-import { initialTickets } from '@/data';
+import { getTicket } from '@/features/ticket/queries/get-ticket';
 import { ticketsPath } from '@/paths';
 
 export const metadata: Metadata = {
@@ -20,7 +19,7 @@ type TicketPageProps = {
 export default async function TicketPage({ params }: TicketPageProps) {
   const { ticketId } = await params;
 
-  const ticket = initialTickets.find((ticket) => ticket.id === ticketId);
+  const ticket = await getTicket(ticketId);
 
   if (!ticket) {
     return (

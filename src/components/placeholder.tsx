@@ -20,7 +20,7 @@ export function Placeholder({
         className: cn('w-10 h-10', icon.props.className),
         'aria-hidden': true,
       })}
-      <p className="text-center text-2xl font-semibold">{message}</p>
+      <p className="text-center text-xl">{message}</p>
       {!!link &&
         cloneElement(link, {
           className: cn('mt-2', link.props.className),

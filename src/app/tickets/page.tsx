@@ -1,28 +1,16 @@
-'use client';
-
-// import { type Metadata } from 'next';
-import { useEffect, useState } from 'react';
+import { type Metadata } from 'next';
 
 import { Heading } from '@/components/heading';
 
 import { TicketItem } from '@/features/ticket/components/ticket-item';
 import { getTickets } from '@/features/ticket/queries/get-tickets';
-import { Ticket } from '@/features/ticket/types';
 
-// export const metadata: Metadata = {
-//   title: 'Tickets',
-// };
+export const metadata: Metadata = {
+  title: 'Tickets',
+};
 
-export default function TicketsPage() {
-  const [tickets, setTickets] = useState<Ticket[]>([]);
-
-  useEffect(() => {
-    async function fetchTickets() {
-      const result = await getTickets();
-      setTickets(result);
-    }
-    fetchTickets();
-  }, []);
+export default async function TicketsPage() {
+  const tickets = await getTickets();
 
   return (
     <div className="flex grow flex-col gap-y-8">

@@ -13,7 +13,7 @@
     "lint:fix": "next lint . --ext js,jsx,ts,tsx,md,mdx --fix",
     "format": "prettier -wu .",
     "prepare": "husky",
-    "type": "tsc --noEmit",
+    "tsc": "tsc --noEmit",
     "postinstall": "prisma generate",
     "prisma-seed": "tsx prisma/seed.ts"
   },

@@ -21,6 +21,7 @@ export function TicketItem({ ticket, isDetail }: TicketItemProps) {
   const ticketDetailsLink = (
     <Button variant="outline" size="icon" asChild>
       <Link
+        prefetch
         href={ticketPath(ticket.id)}
         aria-label={`View details for ticket ${ticket.title}`}
       >

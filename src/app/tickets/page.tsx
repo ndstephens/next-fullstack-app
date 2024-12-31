@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   title: 'Tickets',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default function TicketsPage() {
   return (
     <div className="flex grow flex-col gap-y-8">

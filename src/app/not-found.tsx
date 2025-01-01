@@ -1,7 +1,7 @@
 export default function NotFoundPage() {
   return (
-    <div>
-      <h2>Not Found</h2>
+    <div className="flex grow items-center justify-center">
+      <h2>This page could not be found.</h2>
     </div>
   );
 }

@@ -39,7 +39,7 @@ export function TicketItem({ ticket, isDetail }: TicketItemProps) {
       <Link
         prefetch
         href={ticketEditPath(ticket.id)}
-        aria-label={`Edit details for ticket ${ticket.title}`}
+        aria-label={`Edit ticket ${ticket.title}`}
       >
         <LucidePencil className="h-4 w-4" aria-hidden />
       </Link>
@@ -84,6 +84,7 @@ export function TicketItem({ ticket, isDetail }: TicketItemProps) {
         </CardContent>
       </Card>
 
+      {/* CARD BUTTONS */}
       {isDetail ? (
         <div className="flex flex-col gap-y-1">
           {ticketEditLink}

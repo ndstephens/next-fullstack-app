@@ -14,7 +14,6 @@ type TicketPageProps = {
 
 export default async function TicketPage({ params }: TicketPageProps) {
   const { ticketId } = await params;
-
   const ticket = await getTicket(ticketId);
 
   if (!ticket) {

@@ -15,13 +15,13 @@ const upsertTicketSchema = z.object({
 
 export const upsertTicket = async (
   id: string | undefined,
-  _actionState: { message: string },
+  _actionState: { message: string; payload?: FormData },
   formData: FormData,
 ) => {
   try {
     const data = upsertTicketSchema.parse({
-      title: formData.get('title'),
-      content: formData.get('content'),
+      title: formData.get('title')?.toString().trim(),
+      content: formData.get('content')?.toString().trim(),
     });
 
     await prisma.ticket.upsert({
@@ -34,7 +34,7 @@ export const upsertTicket = async (
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
-    return { message: 'Something went wrong' };
+    return { message: 'Something went wrong', payload: formData };
   }
 
   revalidatePath(ticketsPath());

@@ -111,6 +111,8 @@
 /* * {
   @apply focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current;
 } */
+
+/* This is used by the shadcn/ui library */
 * {
   @apply border-border;
 }

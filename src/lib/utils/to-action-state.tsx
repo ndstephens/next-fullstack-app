@@ -3,9 +3,17 @@ import { ZodError } from 'zod';
 type FieldErrors = Record<string, string[] | undefined>;
 
 export type ActionState = {
+  status?: 'SUCCESS' | 'ERROR';
   message: string;
   fieldErrors: FieldErrors;
   payload?: FormData;
+  timeStamp: number;
+};
+
+export const EMPTY_ACTION_STATE: ActionState = {
+  message: '',
+  fieldErrors: {},
+  timeStamp: Date.now(),
 };
 
 export function fromErrorToActionState(
@@ -30,8 +38,22 @@ export function fromErrorToActionState(
   }
 
   return {
+    status: 'ERROR',
     message,
     fieldErrors,
     payload: formData,
+    timeStamp: Date.now(),
+  };
+}
+
+export function toActionState(
+  status: ActionState['status'],
+  message: string,
+): ActionState {
+  return {
+    status,
+    message,
+    fieldErrors: {},
+    timeStamp: Date.now(),
   };
 }

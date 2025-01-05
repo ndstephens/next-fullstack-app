@@ -8,6 +8,7 @@ import { prisma } from '@/lib/prisma';
 import {
   ActionState,
   fromErrorToActionState,
+  toActionState,
 } from '@/lib/utils/to-action-state';
 
 import { ticketPath, ticketsPath } from '@/paths';
@@ -41,11 +42,11 @@ export const upsertTicket = async (
 
   revalidatePath(ticketsPath());
 
+  // updated a ticket
   if (id) {
-    // updating a ticket
     redirect(ticketPath(id));
   }
 
-  // creating a ticket
-  return { message: 'Ticket created!', fieldErrors: {} };
+  // created a ticket
+  return toActionState('SUCCESS', 'Ticket created');
 };

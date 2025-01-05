@@ -47,5 +47,5 @@ export const upsertTicket = async (
   }
 
   // creating a ticket
-  return { message: 'Ticket created!' };
+  return { message: 'Ticket created!', fieldErrors: {} };
 };

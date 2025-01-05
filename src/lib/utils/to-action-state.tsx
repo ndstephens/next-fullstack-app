@@ -1,30 +1,37 @@
 import { ZodError } from 'zod';
 
-export type ActionState = { message: string; payload?: FormData };
+type FieldErrors = Record<string, string[] | undefined>;
+
+export type ActionState = {
+  message: string;
+  fieldErrors: FieldErrors;
+  payload?: FormData;
+};
 
 export function fromErrorToActionState(
   error: unknown,
   formData: FormData,
 ): ActionState {
   let message: string;
+  let fieldErrors: FieldErrors;
 
   switch (true) {
     case error instanceof ZodError:
-      // if validation error with Zod, return first error message
-      message = error.errors[0].message;
+      message = '';
+      fieldErrors = error.flatten().fieldErrors;
       break;
     case error instanceof Error:
-      // if another error instance, return the message
-      // e.g. database error
       message = error.message;
+      fieldErrors = {};
       break;
     default:
-      // if not an error but something else crashed, return generic message
       message = 'An unknown error occurred';
+      fieldErrors = {};
   }
 
   return {
     message,
+    fieldErrors,
     payload: formData,
   };
 }

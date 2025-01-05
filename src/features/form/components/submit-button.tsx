@@ -3,7 +3,7 @@
 import { LucideLoaderCircle } from 'lucide-react';
 import { useFormStatus } from 'react-dom';
 
-import { Button } from '../ui/button';
+import { Button } from '@/components/ui/button';
 
 type SubmitButtonProps = {
   label: string;

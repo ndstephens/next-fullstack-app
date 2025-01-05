@@ -1,4 +1,4 @@
-import { ActionState } from '@/lib/form/utils/to-action-state';
+import { ActionState } from '../utils/to-action-state';
 
 type FieldErrorProps = {
   actionState: ActionState;

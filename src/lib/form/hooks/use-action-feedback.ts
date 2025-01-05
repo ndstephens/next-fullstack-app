@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { ActionState } from '../utils/to-action-state';
 
@@ -15,7 +15,15 @@ export function useActionFeedback(
   actionState: ActionState,
   options: UseActionFeedbackOptions,
 ) {
+  const prevTimeStamp = useRef(actionState.timeStamp);
+
   useEffect(() => {
+    // prevent running on the same actionState object more than once
+    if (prevTimeStamp.current === actionState.timeStamp) {
+      return;
+    }
+    prevTimeStamp.current = actionState.timeStamp;
+
     if (actionState.status === 'SUCCESS') {
       options.onSuccess?.({ actionState });
     }

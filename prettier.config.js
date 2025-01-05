@@ -9,6 +9,7 @@ module.exports = {
   importOrder: [
     '^@/components/(.*)$',
     '^@/features/(.*)$',
+    '^@/actions/(.*)$',
     '^@/lib/(.*)$',
     '^@/(.*)$',
     '^[./]',

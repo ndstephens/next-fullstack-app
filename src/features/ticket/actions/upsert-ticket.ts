@@ -4,12 +4,12 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 
-import { prisma } from '@/lib/prisma';
+import { prisma } from '@/lib/db/prisma';
 import {
   ActionState,
   fromErrorToActionState,
   toActionState,
-} from '@/lib/utils/to-action-state';
+} from '@/lib/form/utils/to-action-state';
 
 import { ticketPath, ticketsPath } from '@/paths';
 

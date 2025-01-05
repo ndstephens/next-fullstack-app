@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-import { EMPTY_ACTION_STATE } from '@/lib/utils/to-action-state';
+import { EMPTY_ACTION_STATE } from '@/lib/form/utils/to-action-state';
 
 import { upsertTicket } from '../actions/upsert-ticket';
 

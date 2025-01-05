@@ -1,4 +1,4 @@
-import { prisma } from '@/lib/prisma';
+import { prisma } from '@/lib/db/prisma';
 
 export async function getTickets() {
   // TODO: add a try/catch block to handle errors ??

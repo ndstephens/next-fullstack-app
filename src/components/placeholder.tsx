@@ -1,7 +1,7 @@
 import { LucideMessageSquareWarning } from 'lucide-react';
 import { cloneElement } from 'react';
 
-import { cn } from '@/lib/utils/styles';
+import { cn } from '@/lib/styles/utils';
 
 type PlaceholderProps = {
   message: string;

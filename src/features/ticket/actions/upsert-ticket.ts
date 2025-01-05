@@ -10,6 +10,8 @@ import {
   toActionState,
 } from '@/features/form/utils/to-action-state';
 
+import { setCookieByKey } from '@/actions/cookies';
+
 import { prisma } from '@/lib/db/prisma';
 
 import { ticketPath, ticketsPath } from '@/paths';
@@ -45,6 +47,7 @@ export const upsertTicket = async (
 
   // updated a ticket
   if (id) {
+    await setCookieByKey('toast', 'Ticket updated');
     redirect(ticketPath(id));
   }
 

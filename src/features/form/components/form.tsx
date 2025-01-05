@@ -10,6 +10,7 @@ type FormProps = {
 };
 
 export function Form({ action, actionState, children }: FormProps) {
+  // Trigger a Toast notification when an create action is successful or has an error
   useActionFeedback(actionState, {
     onSuccess: ({ actionState }) => {
       if (actionState.message) {

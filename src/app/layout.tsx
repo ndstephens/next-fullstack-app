@@ -4,6 +4,7 @@ import { type PropsWithChildren } from 'react';
 
 import { Header } from '@/components/header';
 import { ThemeProvider } from '@/components/theme/theme-provider';
+import { Toaster } from '@/components/ui/sonner';
 
 import './main.css';
 
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <main className="bg-secondary/20 flex grow flex-col overflow-x-hidden px-8 pt-8 pb-24">
             {children}
           </main>
+          <Toaster expand duration={3000} />
         </ThemeProvider>
       </body>
     </html>

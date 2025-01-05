@@ -2,6 +2,7 @@
 
 import { Ticket } from '@prisma/client';
 import { useActionState } from 'react';
+import { toast } from 'sonner';
 
 import { FieldError } from '@/components/form/field-error';
 import { SubmitButton } from '@/components/form/submit-button';
@@ -25,8 +26,16 @@ export function TicketUpsertForm({ ticket }: TicketUpsertFormProps) {
   );
 
   useActionFeedback(actionState, {
-    onSuccess: ({ actionState }) => console.log(actionState.message),
-    onError: ({ actionState }) => console.log(actionState.message),
+    onSuccess: ({ actionState }) => {
+      if (actionState.message) {
+        toast.success(actionState.message);
+      }
+    },
+    onError: ({ actionState }) => {
+      if (actionState.message) {
+        toast.error(actionState.message);
+      }
+    },
   });
 
   return (

@@ -3,7 +3,6 @@ import { Suspense } from 'react';
 
 import { CardCompact } from '@/components/card-compact';
 import { Heading } from '@/components/heading';
-import { RedirectToast } from '@/components/redirect-toast';
 import { Spinner } from '@/components/spinner';
 
 import { TicketList } from '@/features/ticket/components/ticket-list';
@@ -15,23 +14,19 @@ export const metadata: Metadata = {
 
 export default function TicketsPage() {
   return (
-    <>
-      <div className="flex grow flex-col gap-y-8">
-        <Heading title="Tickets" subtitle="All your tickets in one place" />
+    <div className="flex grow flex-col gap-y-8">
+      <Heading title="Tickets" subtitle="All your tickets in one place" />
 
-        <CardCompact
-          title="Create Ticket"
-          description="A new ticket will be created"
-          content={<TicketUpsertForm />}
-          className="w-full max-w-105 self-center"
-        />
+      <CardCompact
+        title="Create Ticket"
+        description="A new ticket will be created"
+        content={<TicketUpsertForm />}
+        className="w-full max-w-105 self-center"
+      />
 
-        <Suspense fallback={<Spinner />}>
-          <TicketList />
-        </Suspense>
-      </div>
-
-      <RedirectToast />
-    </>
+      <Suspense fallback={<Spinner />}>
+        <TicketList />
+      </Suspense>
+    </div>
   );
 }

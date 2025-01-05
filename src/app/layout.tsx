@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import { type PropsWithChildren } from 'react';
 
 import { Header } from '@/components/header';
+import { RedirectToast } from '@/components/redirect-toast';
 import { ThemeProvider } from '@/components/theme/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
 
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             {children}
           </main>
           <Toaster expand duration={3000} />
+          <RedirectToast />
         </ThemeProvider>
       </body>
     </html>

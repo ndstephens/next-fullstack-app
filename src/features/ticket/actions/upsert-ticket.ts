@@ -40,6 +40,7 @@ export const upsertTicket = async (
       create: data,
     });
   } catch (error) {
+    // TODO: might refactor to get the error message returned and then explicitly trigger the toast notification using the cookie pattern
     return fromErrorToActionState(error, formData);
   }
 
@@ -52,5 +53,6 @@ export const upsertTicket = async (
   }
 
   // created a ticket
+  // TODO: might refactor this to handle the toast notification explicitly using the cookie pattern
   return toActionState('SUCCESS', 'Ticket created');
 };

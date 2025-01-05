@@ -2,6 +2,9 @@
 
 import { cookies } from 'next/headers';
 
+//* =============================================
+//*               BASE ACTIONS                  =
+//*==============================================
 // Create / Update
 export const setCookieByKey = async (key: string, value: string) => {
   (await cookies()).set(key, value);
@@ -21,4 +24,16 @@ export const getCookieByKey = async (key: string) => {
 // Delete
 export const deleteCookieByKey = async (key: string) => {
   (await cookies()).delete(key);
+};
+
+//* =============================================
+//*              CUSTOM ACTIONS                 =
+//*==============================================
+// Toast messages
+export const flashMessage = async () => {
+  const message = await getCookieByKey('toast');
+
+  await deleteCookieByKey('toast');
+
+  return message;
 };

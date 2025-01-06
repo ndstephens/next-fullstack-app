@@ -1,9 +1,12 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// pnpx prisma db push
+//* Database migration:
+//* pnpx prisma db push
+// After updating the db you might need to rerun Prisma Studio and clear its cache, etc.  You might also have to rerun the TS server in VSCode to pick up the new schema type within the codebase.
 
-// pnpx prisma studio
+//* Run Prisma Studio:
+//* pnpx prisma studio
 
 generator client {
   provider = "prisma-client-js"
@@ -22,6 +25,8 @@ model Ticket {
   title     String
   content   String       @db.VarChar(1024)
   status    TicketStatus @default(OPEN)
+  deadline  String
+  bounty    Int
 }
 
 enum TicketStatus {

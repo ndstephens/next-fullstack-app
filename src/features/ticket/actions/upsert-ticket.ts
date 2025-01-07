@@ -13,15 +13,15 @@ import {
 import { setCookieByKey } from '@/actions/cookies';
 
 import { prisma } from '@/lib/db/prisma';
+import { toCents } from '@/lib/utils/currency';
 
 import { ticketPath, ticketsPath } from '@/paths';
 
 const upsertTicketSchema = z.object({
   title: z.string().trim().min(1).max(191),
   content: z.string().trim().min(1).max(1024),
-  // deadline: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   deadline: z.string().date(),
-  bounty: z.coerce.number().int().positive(),
+  bounty: z.coerce.number().positive(),
 });
 
 export const upsertTicket = async (
@@ -37,12 +37,17 @@ export const upsertTicket = async (
       bounty: formData.get('bounty'),
     });
 
+    const dbData = {
+      ...data,
+      bounty: toCents(data.bounty), // convert currency to cents
+    };
+
     await prisma.ticket.upsert({
       where: {
         id: id || '',
       },
-      update: data,
-      create: data,
+      update: dbData,
+      create: dbData,
     });
   } catch (error) {
     // TODO: might refactor to get the error message returned and then explicitly trigger the toast notification using the cookie pattern

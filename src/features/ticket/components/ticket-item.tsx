@@ -18,6 +18,8 @@ import {
 
 import { TICKET_ICONS } from '@/features/ticket/constants';
 
+import { toCurrencyFormatFromCents } from '@/lib/utils/currency';
+
 import { ticketEditPath, ticketPath } from '@/paths';
 
 import { deleteTicket } from '../actions/delete-ticket';
@@ -91,7 +93,9 @@ export function TicketItem({ ticket, isDetail }: TicketItemProps) {
         <CardFooter className="flex justify-between">
           <p className="text-muted-foreground text-sm">{ticket.deadline}</p>
           {/* <p>{`$${(ticket.bounty / 100).toFixed(2)}`}</p> */}
-          <p className="text-muted-foreground text-sm">{ticket.bounty}</p>
+          <p className="text-muted-foreground text-sm">
+            {toCurrencyFormatFromCents(ticket.bounty)}
+          </p>
         </CardFooter>
       </Card>
 

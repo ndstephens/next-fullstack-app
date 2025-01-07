@@ -12,6 +12,8 @@ import { Form } from '@/features/form/components/form';
 import { SubmitButton } from '@/features/form/components/submit-button';
 import { EMPTY_ACTION_STATE } from '@/features/form/utils/to-action-state';
 
+import { fromCents } from '@/lib/utils/currency';
+
 import { upsertTicket } from '../actions/upsert-ticket';
 
 type TicketUpsertFormProps = {
@@ -72,7 +74,8 @@ export function TicketUpsertForm({ ticket }: TicketUpsertFormProps) {
             name="bounty"
             id="bounty"
             defaultValue={
-              (actionState.payload?.get('bounty') as string) ?? ticket?.bounty
+              (actionState.payload?.get('bounty') as string) ??
+              (ticket?.bounty ? fromCents(ticket.bounty) : '')
             }
           />
           <FieldError actionState={actionState} name="bounty" />

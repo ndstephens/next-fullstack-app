@@ -13,9 +13,8 @@ import {
 import { setCookieByKey } from '@/actions/cookies';
 
 import { prisma } from '@/lib/db/prisma';
+import { ticketPath, ticketsPath } from '@/lib/paths';
 import { toCents } from '@/lib/utils/currency';
-
-import { ticketPath, ticketsPath } from '@/paths';
 
 const upsertTicketSchema = z.object({
   title: z.string().trim().min(1).max(191),

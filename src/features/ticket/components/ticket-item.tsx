@@ -18,9 +18,8 @@ import {
 
 import { TICKET_ICONS } from '@/features/ticket/constants';
 
+import { ticketEditPath, ticketPath } from '@/lib/paths';
 import { toCurrencyFormatFromCents } from '@/lib/utils/currency';
-
-import { ticketEditPath, ticketPath } from '@/paths';
 
 import { deleteTicket } from '../actions/delete-ticket';
 

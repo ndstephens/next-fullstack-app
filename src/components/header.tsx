@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ThemeSwitcher } from '@/components/theme/theme-switcher';
 import { buttonVariants } from '@/components/ui/button';
 
-import { homePath, ticketsPath } from '@/paths';
+import { homePath, ticketsPath } from '@/lib/paths';
 
 export function Header() {
   return (

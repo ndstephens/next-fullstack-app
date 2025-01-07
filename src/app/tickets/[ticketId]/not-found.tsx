@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Placeholder } from '@/components/placeholder';
 import { buttonVariants } from '@/components/ui/button';
 
-import { ticketsPath } from '@/paths';
+import { ticketsPath } from '@/lib/paths';
 
 export default function NotFound() {
   return (
